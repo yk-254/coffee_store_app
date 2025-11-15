@@ -85,20 +85,19 @@ class RegisterView extends GetView<RegisterController> {
                           icon: Icons.person_2_outlined,
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 16.w,
-                          vertical: 20.h,
-                        ),
-                        child: SizedBox(
-                          width: Get.width,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text('ورود'),
-                          ),
-                        ),
-                      ),
                     ],
+                  ),
+                  Positioned(
+                    bottom: 32.h,
+                    left: 16.w,
+                    right: 16.w,
+                    child: SizedBox(
+                      width: Get.width,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('ورود'),
+                      ),
+                    ),
                   ),
                 ],
               ),
