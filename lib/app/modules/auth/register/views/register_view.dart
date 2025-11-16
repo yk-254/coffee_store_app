@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
+import '../../widgets/form_tile.dart';
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
@@ -26,7 +27,7 @@ class RegisterView extends GetView<RegisterController> {
                 ),
               ),
               Stack(
-                alignment: Alignment.center,
+                alignment: Alignment.topCenter,
                 children: [
                   Container(
                     width: Get.width,
@@ -40,9 +41,10 @@ class RegisterView extends GetView<RegisterController> {
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 20.h, bottom: 50.h),
+                        padding: EdgeInsets.only(top: 40.h, bottom: 50.h),
                         child: Text(
                           'ثبت نام',
                           style: Theme.of(context).textTheme.titleLarge,
@@ -105,48 +107,6 @@ class RegisterView extends GetView<RegisterController> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class FormTile extends StatelessWidget {
-  final String title;
-  final String hint;
-  final IconData icon;
-  final bool obsecure;
-  final TextDirection direction;
-
-  const FormTile({
-    super.key,
-    required this.title,
-    required this.hint,
-    required this.icon,
-    required this.direction,
-    this.obsecure = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Text(
-          title,
-          textAlign: TextAlign.right,
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-        SizedBox(height: 15.h),
-        TextField(
-          obscureText: obsecure,
-          textDirection: direction,
-          cursorColor: AppColors.text,
-          style: Theme.of(context).textTheme.bodyMedium,
-          decoration: InputDecoration(
-            hint: Text(hint, textDirection: TextDirection.rtl),
-            suffixIcon: Icon(icon, color: AppColors.text),
-          ),
-        ),
-      ],
     );
   }
 }

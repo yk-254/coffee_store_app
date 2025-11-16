@@ -11,11 +11,21 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(title: const Text('HomeView'), centerTitle: true),
       body: Center(
-        child: ElevatedButton(
-          child: Text('ثبت نام'),
-          onPressed: () {
-            Get.toNamed('/register');
-          },
+        child: Column(
+          children: [
+            ElevatedButton(
+              child: Text('ثبت نام'),
+              onPressed: () {
+                Get.toNamed('/register');
+              },
+            ),
+            ElevatedButton(
+              child: Text('ورود'),
+              onPressed: () {
+                Get.toNamed('/login');
+              },
+            ),
+          ],
         ),
       ),
     );

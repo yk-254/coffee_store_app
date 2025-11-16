@@ -12,6 +12,7 @@ class AppColors {
   static const iconUnselected = Color(0xFF7B736B); // Unselected icon
   static const gradientStart = Color(0xFFD19F6C); // Accent gradient start
   static const gradientEnd = Color(0xFF6B4E3D); // Accent gradient end
+  static const textButton = Color.fromARGB(255, 196, 129, 63);
 }
 
 class AppTheme {
@@ -51,7 +52,15 @@ class AppTheme {
         ),
       ),
       textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(foregroundColor: AppColors.primary),
+        style: TextButton.styleFrom(
+          foregroundColor: AppColors.textButton,
+          textStyle: TextStyle(
+            color: AppColors.text,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'vazirmatn',
+          ),
+        ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
@@ -89,7 +98,9 @@ class AppTheme {
       textTheme: TextTheme(
         bodyLarge: TextStyle(
           color: AppColors.text,
-          fontSize: 16,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+
           fontFamily: 'vazirmatn',
         ),
         bodyMedium: TextStyle(
