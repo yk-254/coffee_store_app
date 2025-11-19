@@ -25,6 +25,12 @@ class HomeView extends GetView<HomeController> {
                 Get.toNamed('/login');
               },
             ),
+            ElevatedButton(
+              child: Text('محصول'),
+              onPressed: () {
+                Get.toNamed('/product');
+              },
+            ),
           ],
         ),
       ),
