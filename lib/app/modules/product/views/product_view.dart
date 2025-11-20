@@ -138,7 +138,7 @@ class ProductView extends GetView<ProductController> {
             ),
           ),
           Align(
-            alignment: AlignmentGeometry.xy(0, 0.2),
+            alignment: AlignmentGeometry.xy(0, 0.4),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -146,7 +146,7 @@ class ProductView extends GetView<ProductController> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: EdgeInsets.only(right: 20.0.w),
+                    padding: EdgeInsets.only(right: 20.0.w, top: 30.h),
                     child: Text(
                       'توضیحات',
                       style: Theme.of(context).textTheme.titleMedium,
@@ -156,7 +156,7 @@ class ProductView extends GetView<ProductController> {
                 Padding(
                   padding: EdgeInsetsGeometry.symmetric(
                     horizontal: 20.h,
-                    vertical: 10.w,
+                    vertical: 20.w,
                   ),
                   child: Text(
                     'نوعی قهوه غلیظ و خوش طعم که قرار است به صورت <شات> سرو شود.',
@@ -241,6 +241,100 @@ class ProductView extends GetView<ProductController> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 30.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    width: 140.w,
+                    height: 60.h,
+                    child: Card(
+                      color: Colors.transparent,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          width: 1.5,
+                          color: AppColors.secondary,
+                        ),
+                        borderRadius: BorderRadiusGeometry.only(
+                          topLeft: Radius.circular(0),
+                          topRight: Radius.circular(15.r),
+                          bottomRight: Radius.circular(15.r),
+                          bottomLeft: Radius.circular(0),
+                        ),
+                      ),
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              '25تومان',
+                              textDirection: TextDirection.rtl,
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
+                            Text(
+                              '.00',
+                              style: TextStyle(
+                                color: AppColors.primary,
+                                fontSize: 12.sp,
+                                height: 3.85,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 260.w,
+                    height: 60.h,
+                    child: InkWell(
+                      onTap: () {},
+                      child: Card(
+                        color: AppColors.secondary,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            width: 1.5,
+                            color: AppColors.secondary,
+                          ),
+                          borderRadius: BorderRadiusGeometry.only(
+                            topLeft: Radius.circular(15.r),
+                            topRight: Radius.circular(0),
+                            bottomRight: Radius.circular(0),
+                            bottomLeft: Radius.circular(15.r),
+                          ),
+                        ),
+                        child: Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'افزودن به سبد خرید',
+                                style: TextStyle(
+                                  color: AppColors.background,
+                                  fontSize: 20.sp,
+                                ),
+                              ),
+                              SizedBox(width: 20.w),
+                              Icon(
+                                Icons.shopping_cart_outlined,
+                                color: AppColors.background,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
