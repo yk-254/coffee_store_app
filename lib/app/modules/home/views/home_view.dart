@@ -31,6 +31,12 @@ class HomeView extends GetView<HomeController> {
                 Get.toNamed('/product');
               },
             ),
+            ElevatedButton(
+              child: Text('پروفایل'),
+              onPressed: () {
+                Get.toNamed('/profile');
+              },
+            ),
           ],
         ),
       ),
