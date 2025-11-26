@@ -13,6 +13,7 @@ class AppColors {
   static const gradientStart = Color(0xFFD19F6C); // Accent gradient start
   static const gradientEnd = Color(0xFF6B4E3D); // Accent gradient end
   static const textButton = Color.fromARGB(255, 196, 129, 63);
+  static const black = Color.fromARGB(255, 17, 17, 17);
 }
 
 class AppTheme {
