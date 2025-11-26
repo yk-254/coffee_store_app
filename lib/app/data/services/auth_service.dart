@@ -1,10 +1,11 @@
 import 'dart:convert';
+import 'package:coffee_store_app/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/user_model.dart';
 
 class AuthService extends GetxService {
-  final users = <UserModel>[].obs; 
+  final users = <UserModel>[].obs;
   UserModel? currentUser;
   SharedPreferences? prefs;
 
@@ -21,9 +22,7 @@ class AuthService extends GetxService {
   //              REGISTER
   // -------------------------------
   bool register(UserModel user) {
-    final isExist = users.any(
-      (u) => u.username == user.username || u.email == user.email,
-    );
+    final isExist = users.any((u) => u.username == user.username || u.email == user.email);
 
     if (isExist) return false;
 
@@ -40,9 +39,7 @@ class AuthService extends GetxService {
   //              LOGIN
   // -------------------------------
   bool login(String username, String password) {
-    final user = users.firstWhereOrNull(
-      (u) => u.username == username && u.password == password,
-    );
+    final user = users.firstWhereOrNull((u) => u.username == username && u.password == password);
 
     if (user == null) return false;
 
@@ -57,6 +54,7 @@ class AuthService extends GetxService {
   void logout() {
     currentUser = null;
     prefs?.remove("currentUser");
+    Get.offAllNamed(Routes.LOGIN);
   }
 
   bool isLoggedIn() => currentUser != null;
@@ -65,13 +63,7 @@ class AuthService extends GetxService {
   //        LOCAL STORAGE
   // -------------------------------
   void _saveUsers() {
-    final userListJson = users
-        .map((u) => jsonEncode({
-              "username": u.username,
-              "password": u.password,
-              "email": u.email,
-            }))
-        .toList();
+    final userListJson = users.map((u) => jsonEncode({"username": u.username, "password": u.password, "email": u.email})).toList();
 
     prefs?.setStringList("users", userListJson);
   }
@@ -80,25 +72,15 @@ class AuthService extends GetxService {
     final userList = prefs?.getStringList("users") ?? [];
 
     users.assignAll(
-      userList.map(
-        (jsonStr) {
-          final data = jsonDecode(jsonStr);
-          return UserModel(
-            username: data['username'],
-            password: data['password'],
-            email: data['email'],
-          );
-        },
-      ),
+      userList.map((jsonStr) {
+        final data = jsonDecode(jsonStr);
+        return UserModel(username: data['username'], password: data['password'], email: data['email']);
+      }),
     );
   }
 
   void _saveCurrentUser(UserModel user) {
-    prefs?.setString("currentUser", jsonEncode({
-      "username": user.username,
-      "password": user.password,
-      "email": user.email,
-    }));
+    prefs?.setString("currentUser", jsonEncode({"username": user.username, "password": user.password, "email": user.email}));
   }
 
   void _loadCurrentUser() {
@@ -107,10 +89,6 @@ class AuthService extends GetxService {
 
     final data = jsonDecode(jsonStr);
 
-    currentUser = UserModel(
-      username: data['username'],
-      password: data['password'],
-      email: data['email'],
-    );
+    currentUser = UserModel(username: data['username'], password: data['password'], email: data['email']);
   }
 }
