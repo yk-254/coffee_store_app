@@ -22,28 +22,16 @@ class ProfileView extends GetView<ProfileController> {
                 top: 35.h,
                 bottom: 15.h,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: Icon(
-                      Icons.arrow_back_ios,
-                      size: 30.sp,
-                      color: AppColors.primary,
-                    ),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.more_vert,
+                    size: 30.sp,
+                    color: AppColors.primary,
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.more_vert,
-                      size: 30.sp,
-                      color: AppColors.primary,
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
             Padding(
