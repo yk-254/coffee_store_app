@@ -1,4 +1,3 @@
-import 'package:coffee_store_app/app/data/services/auth_service.dart';
 import 'package:coffee_store_app/app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,9 +23,9 @@ class ProfileView extends GetView<ProfileController> {
               padding: EdgeInsets.only(top: 0.h, bottom: 25.h),
               child: SizedBox(height: 180.h, width: 180.w, child: CircleAvatar(backgroundColor: AppColors.third, child: Image.asset('assets/images/user/profile_male.png'))),
             ),
-            Text('رضا حسن زاده', style: Theme.of(context).textTheme.titleMedium),
+            Text(controller.currentUser.value?.username ?? 'نام کاربری', style: Theme.of(context).textTheme.titleMedium),
             SizedBox(height: 10.h),
-            Text('reza@example.com', style: Theme.of(context).textTheme.bodyLarge),
+            Text(controller.currentUser.value?.email ?? 'ایمیل کاربری', style: Theme.of(context).textTheme.bodyLarge),
             Padding(
               padding: EdgeInsets.only(top: 35.h),
               child: SizedBox(
@@ -44,7 +43,7 @@ class ProfileView extends GetView<ProfileController> {
                       InkWell(onTap: () {}, child: ProfileTiles(icon: Icons.headset_mic_outlined, text: 'پشتیبانی')),
                       InkWell(
                         onTap: () {
-                          AuthService().logout();
+                          controller.logout();
                         },
                         child: ProfileTiles(icon: Icons.logout, text: 'خروج'),
                       ),

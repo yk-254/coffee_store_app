@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../routes/app_pages.dart';
 import '../../widgets/form_tile.dart';
 import '../controllers/register_controller.dart';
 
@@ -69,6 +70,19 @@ class RegisterView extends GetView<RegisterController> {
                         ),
                       ),
                     ),
+                  ),
+                  SizedBox(height: 10.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Get.toNamed(Routes.LOGIN);
+                        },
+                        child: Text('ثبت نام'),
+                      ),
+                      Text('حساب کاربری دارید؟', style: Theme.of(context).textTheme.bodyLarge),
+                    ],
                   ),
                 ],
               ),
