@@ -106,7 +106,7 @@ class CartView extends GetView<CartController> {
                       Text(
                         '25 تومان',
                         textDirection: TextDirection.rtl,
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       Text(
                         'سبد خرید',
@@ -127,7 +127,7 @@ class CartView extends GetView<CartController> {
                       Text(
                         '10%',
                         textDirection: TextDirection.rtl,
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       Text(
                         'تخفیف',
@@ -148,7 +148,7 @@ class CartView extends GetView<CartController> {
                       Text(
                         '22 تومان',
                         textDirection: TextDirection.rtl,
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       Text(
                         'مجموع',

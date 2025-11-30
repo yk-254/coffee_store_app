@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:coffee_store_app/app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,12 +21,19 @@ class HomeView extends GetView<HomeController> {
     ];
     int selectedCategory = 0;
 
+    List<String> drinks = ['اسپرسو', 'لاته', 'موکا', 'آمریکانو', 'کاپوچینو'];
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 22.w, vertical: 28.h),
+              padding: EdgeInsets.only(
+                left: 22.w,
+                right: 22.w,
+                top: 34.h,
+                bottom: 20.h,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -156,66 +165,68 @@ class HomeView extends GetView<HomeController> {
               ),
             ),
             SizedBox(height: 20.h),
-            SizedBox(
-              height: 45.h,
-              width: Get.width,
-              child: ListView.builder(
-                itemCount: categories.length,
-                scrollDirection: Axis.horizontal,
-                reverse: true,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {},
-                    child: SizedBox(
-                      width: 120.w,
-                      height: 45.h,
-                      child: Card(
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadiusGeometry.all(
-                            Radius.circular(8.r),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
+              child: SizedBox(
+                height: 45.h,
+                width: Get.width,
+                child: ListView.builder(
+                  itemCount: categories.length,
+                  scrollDirection: Axis.horizontal,
+                  reverse: true,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {},
+                      child: SizedBox(
+                        width: 120.w,
+                        height: 45.h,
+                        child: Card(
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadiusGeometry.all(
+                              Radius.circular(8.r),
+                            ),
                           ),
-                        ),
-                        color:
-                            index == selectedCategory
-                                ? AppColors.secondary
-                                : AppColors.black.withAlpha(35),
-                        child: Center(
-                          child: Text(
-                            categories[index],
-                            style: TextStyle(
-                              color:
-                                  index == selectedCategory
-                                      ? AppColors.background
-                                      : AppColors.black,
-                              fontSize: 17.sp,
+                          color:
+                              index == selectedCategory
+                                  ? AppColors.secondary
+                                  : AppColors.black.withAlpha(35),
+                          child: Center(
+                            child: Text(
+                              categories[index],
+                              style: TextStyle(
+                                color:
+                                    index == selectedCategory
+                                        ? AppColors.background
+                                        : AppColors.black,
+                                fontSize: 17.sp,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 40.0),
+              padding: EdgeInsets.only(top: 10.h),
               child: SizedBox(
-                height: 341,
+                height: 500.h,
                 width: Get.width,
                 child: ListView.builder(
-                  reverse: true,
-
                   scrollDirection: Axis.horizontal,
                   itemCount: 4,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
                       child: Stack(
+                        alignment: Alignment.center,
                         children: [
                           Container(
-                            height: 341,
-                            width: 200,
+                            height: 330.h,
+                            width: 230.w,
                             decoration: BoxDecoration(
                               color: AppColors.third,
                               borderRadius: BorderRadius.only(
@@ -224,6 +235,108 @@ class HomeView extends GetView<HomeController> {
                                 bottomRight: Radius.circular(150),
                                 bottomLeft: Radius.circular(150),
                               ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 190.h,
+                            child: Column(
+                              children: [
+                                Text(
+                                  drinks[index],
+                                  style: TextStyle(
+                                    color: AppColors.black,
+                                    fontSize: 36.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  '330 ml',
+                                  style: TextStyle(
+                                    color: AppColors.black,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 270.h,
+                            child: Stack(
+                              children: [
+                                Align(
+                                  alignment: AlignmentGeometry.xy(0.1, -0.4),
+                                  child: Opacity(
+                                    opacity: 0.4,
+                                    child: SizedBox(
+                                      width: 150.w,
+                                      child: ImageFiltered(
+                                        imageFilter: ImageFilter.blur(
+                                          sigmaX: 10,
+                                          sigmaY: 10,
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/products/espresso.png',
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentGeometry.xy(0, -0.4),
+                                  child: SizedBox(
+                                    width: 150.w,
+                                    child: Image.asset(
+                                      'assets/images/products/espresso.png',
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 70.h,
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 110.w,
+                                  height: 50.h,
+                                  child: Card(
+                                    elevation: 0,
+                                    color: AppColors.secondary,
+                                    child: Center(
+                                      child: Text(
+                                        '25 تومان',
+                                        textDirection: TextDirection.rtl,
+                                        style: TextStyle(
+                                          color: AppColors.background,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 10.w),
+                                SizedBox(
+                                  width: 50.w,
+                                  height: 50.h,
+                                  child: Card(
+                                    elevation: 0,
+                                    color: AppColors.secondary,
+                                    child: Center(
+                                      child: IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.add,
+                                          color: AppColors.background,
+                                          size: 27.sp,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
