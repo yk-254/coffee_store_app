@@ -57,7 +57,7 @@ class AppTheme {
           foregroundColor: AppColors.textButton,
           textStyle: TextStyle(
             color: AppColors.text,
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
             fontFamily: 'vazirmatn',
           ),

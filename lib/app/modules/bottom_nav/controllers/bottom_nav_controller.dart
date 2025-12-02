@@ -7,14 +7,9 @@ import '../../profile/views/profile_view.dart';
 class BottomNavController extends GetxController {
   //TODO: Implement BottomNavController
 
-   final currentIndex = 1.obs;
+  final currentIndex = 1.obs;
 
-  final pages = [
-    
-    CartView(),
-    HomeView(),
-    ProfileView(),
-  ];
+  final pages = [CartView(), HomeView(), ProfileView()];
 
   void changeTab(int index) {
     currentIndex.value = index;

@@ -24,16 +24,7 @@ class CartView extends GetView<CartController> {
                 fontFamily: 'vazirmatn',
               ),
             ),
-            leading: IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: Icon(
-                Icons.arrow_back_ios_new,
-                color: AppColors.primary,
-                size: 30.sp,
-              ),
-            ),
+
             backgroundColor: Colors.transparent,
             elevation: 0,
             automaticallyImplyLeading: false,
@@ -92,7 +83,7 @@ class CartView extends GetView<CartController> {
                         child: TextField(
                           cursorColor: AppColors.text,
                           style: Theme.of(context).textTheme.bodyMedium,
-                          textDirection: TextDirection.rtl,
+                          textDirection: TextDirection.ltr,
                           decoration: InputDecoration(
                             hintText: 'کد تخفیف',
                             hintTextDirection: TextDirection.rtl,
@@ -115,7 +106,7 @@ class CartView extends GetView<CartController> {
                       Text(
                         '25 تومان',
                         textDirection: TextDirection.rtl,
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       Text(
                         'سبد خرید',
@@ -136,7 +127,7 @@ class CartView extends GetView<CartController> {
                       Text(
                         '10%',
                         textDirection: TextDirection.rtl,
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       Text(
                         'تخفیف',
@@ -149,7 +140,7 @@ class CartView extends GetView<CartController> {
                   padding: EdgeInsets.only(
                     left: 22.w,
                     right: 22.w,
-                    bottom: 140.h,
+                    bottom: 35.h,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -157,7 +148,7 @@ class CartView extends GetView<CartController> {
                       Text(
                         '22 تومان',
                         textDirection: TextDirection.rtl,
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       Text(
                         'مجموع',
@@ -166,20 +157,21 @@ class CartView extends GetView<CartController> {
                     ],
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 20.w,
+                    right: 20.w,
+                    bottom: 40.w,
+                  ),
+                  child: SizedBox(
+                    width: Get.width,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text('تسویه حساب'),
+                    ),
+                  ),
+                ),
               ],
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
-            child: SizedBox(
-              width: Get.width,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text('تسویه حساب'),
-              ),
             ),
           ),
         ),
