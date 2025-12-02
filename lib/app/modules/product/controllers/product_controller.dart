@@ -1,23 +1,48 @@
 import 'package:get/get.dart';
+import '../../../data/models/product_model.dart';
+import '../../cart/controllers/cart_controller.dart';
 
 class ProductController extends GetxController {
-  //TODO: Implement ProductController
+  /// محصول جاری
+  late ProductModel product;
 
-  final count = 0.obs;
+  /// تعداد محصول برای اضافه به سبد خرید
+  RxInt quantity = 1.obs;
+
+  /// کنترلر سبد خرید
+  final CartController cartController = Get.find();
+
   @override
   void onInit() {
     super.onInit();
+    // دریافت محصول از آرگومان‌ها
+    product = Get.arguments as ProductModel;
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  /// افزایش تعداد
+  void increment() {
+    quantity.value++;
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  /// کاهش تعداد
+  void decrement() {
+    if (quantity.value > 1) {
+      quantity.value--;
+    }
   }
 
-  void increment() => count.value++;
+  /// افزودن به سبد خرید
+  void addToCart() {
+    cartController.addProduct(product, quantity.value);
+
+    Get.snackbar(
+      "سبد خرید",
+      "${product.name} با تعداد ${quantity.value} به سبد خرید اضافه شد",
+      snackPosition: SnackPosition.BOTTOM,
+      duration: const Duration(seconds: 2),
+    );
+
+    // ریست کردن تعداد
+    quantity.value = 1;
+  }
 }
