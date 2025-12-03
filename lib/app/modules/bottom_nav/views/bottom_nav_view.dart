@@ -21,7 +21,7 @@ class BottomNavView extends GetView<BottomNavController> {
           activeIndex: controller.currentIndex.value,
           color: AppColors.third,
           padding: EdgeInsets.only(bottom: 24.h, right: 18.w, left: 18.w),
-          circleWidth: 50.h,
+          circleWidth: 60.h,
           circleColor: AppColors.secondary,
           height: 75.h,
           cornerRadius: BorderRadius.only(
