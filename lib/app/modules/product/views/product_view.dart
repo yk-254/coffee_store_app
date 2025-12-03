@@ -284,17 +284,33 @@ class ProductView extends GetView<ProductController> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              ' ${controller.product.price}تومان',
-                              textDirection: TextDirection.rtl,
-                              style: Theme.of(context).textTheme.bodyLarge,
-                            ),
-                            Text(
-                              '',
+                              'تومان ',
                               style: TextStyle(
                                 color: AppColors.primary,
-                                fontSize: 12.sp,
-                                height: 3.85,
                                 fontWeight: FontWeight.bold,
+                                fontSize: 15.sp,
+                                height: 3.2,
+                              ),
+                            ),
+                            Text(
+                              controller.product.price.toString().substring(
+                                0,
+                                controller.product.price.toString().length - 3,
+                              ),
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                color: AppColors.primary,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.sp,
+                              ),
+                            ),
+                            Text(
+                              '.000',
+                              style: TextStyle(
+                                color: AppColors.primary,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.sp,
+                                height: 3.95,
                               ),
                             ),
                           ],

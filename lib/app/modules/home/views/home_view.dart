@@ -238,9 +238,10 @@ class HomeView extends GetView<HomeController> {
                                 ),
                               ),
                               Positioned(
-                                bottom: 190.h,
+                                bottom: 180.h,
                                 child: Column(
                                   children: [
+                                    SizedBox(height: 10.h),
                                     Text(
                                       controller.filteredProducts
                                           .elementAt(index)
@@ -251,6 +252,7 @@ class HomeView extends GetView<HomeController> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
+                                    SizedBox(height: 10.h),
                                     Text(
                                       controller.filteredProducts
                                           .elementAt(index)
@@ -313,16 +315,51 @@ class HomeView extends GetView<HomeController> {
                                         elevation: 0,
                                         color: AppColors.secondary,
                                         child: Center(
-                                          child: Text(
-                                            controller.filteredProducts
-                                                .elementAt(index)
-                                                .price
-                                                .toString(),
-                                            textDirection: TextDirection.rtl,
-                                            style: TextStyle(
-                                              color: AppColors.background,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'تومان ',
+                                                style: TextStyle(
+                                                  color: AppColors.background,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 11.sp,
+                                                  height: 2.9,
+                                                ),
+                                              ),
+                                              Text(
+                                                controller.filteredProducts
+                                                    .elementAt(index)
+                                                    .price
+                                                    .toString()
+                                                    .substring(
+                                                      0,
+                                                      controller
+                                                              .filteredProducts
+                                                              .elementAt(index)
+                                                              .price
+                                                              .toString()
+                                                              .length -
+                                                          3,
+                                                    ),
+                                                textDirection:
+                                                    TextDirection.rtl,
+                                                style: TextStyle(
+                                                  color: AppColors.background,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Text(
+                                                '.000',
+                                                style: TextStyle(
+                                                  color: AppColors.background,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 11.sp,
+                                                  height: 2.9,
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
