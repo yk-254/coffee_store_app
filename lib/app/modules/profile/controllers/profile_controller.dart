@@ -4,8 +4,6 @@ import '../../../data/models/user_model.dart';
 import '../../../data/services/auth_service.dart';
 
 class ProfileController extends GetxController {
-  //TODO: Implement ProfileController
-
   final AuthService authService = Get.find<AuthService>();
 
   // کاربر جاری
@@ -22,5 +20,4 @@ class ProfileController extends GetxController {
   void logout() {
     authService.logout();
   }
- 
 }

@@ -5,8 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../data/models/product_model.dart';
 
 class CartController extends GetxController {
-  //TODO: Implement CartController
-
   RxList<CartModel> items = <CartModel>[].obs;
 
   /// مجموع قیمت
@@ -15,14 +13,15 @@ class CartController extends GetxController {
   /// افزودن محصول به سبد خرید
   void addProduct(ProductModel product, int quantity) {
     // اگر محصول موجود است، تعدادش را افزایش بده
-    final existing = items.firstWhereOrNull((element) => element.product.id == product.id);
+    final existing = items.firstWhereOrNull(
+      (element) => element.product.id == product.id,
+    );
 
     if (existing != null) {
       existing.quantity.value += quantity;
     } else {
       items.add(CartModel(product: product, quantity: quantity));
     }
-    print(items.length);
     calculateTotal();
   }
 
@@ -84,7 +83,8 @@ class CartController extends GetxController {
   /// ذخیره در SharedPreferences (اختیاری)
   Future<void> saveCartToPrefs() async {
     final prefs = await SharedPreferences.getInstance();
-    final data = items.map((e) => "${e.product.id}:${e.quantity.value}").toList();
+    final data =
+        items.map((e) => "${e.product.id}:${e.quantity.value}").toList();
     await prefs.setStringList('cart_items', data);
   }
 

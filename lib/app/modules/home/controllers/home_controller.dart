@@ -1,10 +1,14 @@
 import 'package:coffee_store_app/app/routes/app_pages.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../data/models/product_model.dart';
 import '../../../data/static/product_data.dart';
+import '../../../theme/app_theme.dart';
 import '../../cart/controllers/cart_controller.dart';
 
-class HomeController extends GetxController with StateMixin<List<ProductModel>> {
+class HomeController extends GetxController
+    with StateMixin<List<ProductModel>> {
   /// دسته‌بندی‌های ثابت
   final categories = ['همه', 'دمنوش', 'نسکافه', 'قهوه دمی', 'قهوه سرد'];
 
@@ -74,7 +78,24 @@ class HomeController extends GetxController with StateMixin<List<ProductModel>> 
   void addToCart(ProductModel product) {
     cartController.addProduct(product, 1);
 
-    Get.snackbar("سبد خرید", "${product.name} با تعداد 1 به سبد خرید اضافه شد", snackPosition: SnackPosition.BOTTOM, duration: const Duration(seconds: 2));
+    Get.snackbar(
+      "سبد خرید",
+      "${product.name} با تعداد 1 به سبد خرید اضافه شد",
+      titleText: Text(
+        "سبد خرید",
+        textDirection: TextDirection.rtl,
+        style: TextStyle(color: AppColors.black),
+      ),
+      messageText: Text(
+        "${product.name} با تعداد 1 به سبد خرید اضافه شد",
+        textDirection: TextDirection.rtl,
+        style: TextStyle(color: AppColors.black),
+      ),
+      snackPosition: SnackPosition.BOTTOM,
+      duration: const Duration(seconds: 2),
+      borderColor: AppColors.black.withAlpha(100),
+      borderWidth: 1.2.w,
+    );
   }
 
   /// رفتن به صفحه جزئیات
