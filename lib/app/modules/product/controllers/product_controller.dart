@@ -1,5 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../data/models/product_model.dart';
+import '../../../theme/app_theme.dart';
 import '../../cart/controllers/cart_controller.dart';
 
 class ProductController extends GetxController {
@@ -37,9 +40,21 @@ class ProductController extends GetxController {
 
     Get.snackbar(
       "سبد خرید",
-      "${product.name} با تعداد ${quantity.value} به سبد خرید اضافه شد",
+      "${product.name} با تعداد 1 به سبد خرید اضافه شد",
+      titleText: Text(
+        "سبد خرید",
+        textDirection: TextDirection.rtl,
+        style: TextStyle(color: AppColors.black),
+      ),
+      messageText: Text(
+        "${product.name} با تعداد 1 به سبد خرید اضافه شد",
+        textDirection: TextDirection.rtl,
+        style: TextStyle(color: AppColors.black),
+      ),
       snackPosition: SnackPosition.BOTTOM,
       duration: const Duration(seconds: 2),
+      borderColor: AppColors.black.withAlpha(100),
+      borderWidth: 1.2.w,
     );
 
     // ریست کردن تعداد

@@ -109,15 +109,15 @@ class ProductView extends GetView<ProductController> {
             ),
           ),
           Align(
-            alignment: AlignmentGeometry.xy(0, -0.4),
+            alignment: Alignment(0, -0.4),
             child: Stack(
               children: [
                 Align(
-                  alignment: AlignmentGeometry.xy(0.1, -0.4),
+                  alignment: Alignment(0.1, -0.4),
                   child: Opacity(
                     opacity: 0.4,
                     child: SizedBox(
-                      width: 240,
+                      width: 240.w,
                       child: ImageFiltered(
                         imageFilter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                         child: Image.asset(
@@ -129,129 +129,139 @@ class ProductView extends GetView<ProductController> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentGeometry.xy(0, -0.4),
+                  alignment: Alignment(0, -0.4),
                   child: SizedBox(
-                    width: 200,
+                    width: 200.w,
                     child: Image.asset('assets/images/products/espresso.png'),
                   ),
                 ),
               ],
             ),
           ),
-          Align(
-            alignment: AlignmentGeometry.directional(0, 0.55),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  controller.product.name,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: EdgeInsets.only(right: 20.0.w, top: 30.h),
-                    child: Text(
-                      'توضیحات',
-                      style: Theme.of(context).textTheme.titleMedium,
+          Positioned.fill(
+            top: Get.height * 0.45,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 25.h),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 20.h),
+
+                    Text(
+                      controller.product.name,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsGeometry.symmetric(
-                    horizontal: 20.h,
-                    vertical: 20.w,
-                  ),
-                  child: Text(
-                    controller.product.description,
-                    textDirection: TextDirection.rtl,
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 20.0.w, top: 30.h),
+                        child: Text(
+                          'توضیحات',
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsGeometry.symmetric(
+                        horizontal: 20.w,
+                        vertical: 20.h,
+                      ),
+                      child: Text(
+                        controller.product.description,
+                        textDirection: TextDirection.rtl,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SizedBox(
-                            width: 46.w,
-                            height: 60.h,
-                            child: Card(
-                              elevation: 2,
-                              color: AppColors.secondary.withAlpha(120),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadiusGeometry.only(
-                                  topRight: Radius.circular(10.r),
-                                  bottomRight: Radius.circular(10.r),
-                                  topLeft: Radius.circular(20.r),
-                                  bottomLeft: Radius.circular(20.r),
-                                ),
-                              ),
-                              child: InkWell(
-                                onTap: () {
-                                  controller.increment();
-                                },
-                                child: Icon(
-                                  Icons.add,
-                                  size: 26.sp,
-                                  color: AppColors.background,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Obx(
-                            () => SizedBox(
-                              width: 60,
-                              child: Center(
-                                child: Text(
-                                  controller.quantity.string,
-                                  style:
-                                      Theme.of(context).textTheme.titleMedium,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 46.w,
-                            height: 60.h,
-                            child: Card(
-                              elevation: 2,
-                              color: AppColors.secondary.withAlpha(120),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadiusGeometry.only(
-                                  topRight: Radius.circular(20.r),
-                                  bottomRight: Radius.circular(20.r),
-                                  topLeft: Radius.circular(10.r),
-                                  bottomLeft: Radius.circular(10.r),
-                                ),
-                              ),
-                              child: InkWell(
-                                onTap: () {
-                                  controller.decrement();
-                                },
-                                child: Padding(
-                                  padding: EdgeInsets.only(bottom: 18.0.h),
-                                  child: Icon(
-                                    Icons.minimize_rounded,
-                                    size: 30.sp,
-                                    color: AppColors.background,
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 46.w,
+                                height: 60.h,
+                                child: Card(
+                                  elevation: 2,
+                                  color: AppColors.secondary.withAlpha(120),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadiusGeometry.only(
+                                      topRight: Radius.circular(10.r),
+                                      bottomRight: Radius.circular(10.r),
+                                      topLeft: Radius.circular(20.r),
+                                      bottomLeft: Radius.circular(20.r),
+                                    ),
+                                  ),
+                                  child: InkWell(
+                                    onTap: () {
+                                      controller.increment();
+                                    },
+                                    child: Icon(
+                                      Icons.add,
+                                      size: 26.sp,
+                                      color: AppColors.background,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
+                              Obx(
+                                () => SizedBox(
+                                  width: 60.w,
+                                  child: Center(
+                                    child: Text(
+                                      controller.quantity.string,
+                                      style:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.titleMedium,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 46.w,
+                                height: 60.h,
+                                child: Card(
+                                  elevation: 2,
+                                  color: AppColors.secondary.withAlpha(120),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadiusGeometry.only(
+                                      topRight: Radius.circular(20.r),
+                                      bottomRight: Radius.circular(20.r),
+                                      topLeft: Radius.circular(10.r),
+                                      bottomLeft: Radius.circular(10.r),
+                                    ),
+                                  ),
+                                  child: InkWell(
+                                    onTap: () {
+                                      controller.decrement();
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(bottom: 18.0.h),
+                                      child: Icon(
+                                        Icons.minimize_rounded,
+                                        size: 30.sp,
+                                        color: AppColors.background,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            'تعداد',
+                            style: Theme.of(context).textTheme.titleMedium,
                           ),
                         ],
                       ),
-                      Text(
-                        'تعداد',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
           Align(
@@ -310,7 +320,7 @@ class ProductView extends GetView<ProductController> {
                                 color: AppColors.primary,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14.sp,
-                                height: 3.95,
+                                height: 3.95.h,
                               ),
                             ),
                           ],
