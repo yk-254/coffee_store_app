@@ -70,7 +70,7 @@ class RegisterView extends GetView<RegisterController> {
                           controller: controller.usernameController,
                           cursorColor: AppColors.primary,
 
-                          textDirection: TextDirection.rtl,
+                          textDirection: TextDirection.ltr,
                           decoration: InputDecoration(
                             hintTextDirection: TextDirection.rtl,
                             suffixIcon: Icon(

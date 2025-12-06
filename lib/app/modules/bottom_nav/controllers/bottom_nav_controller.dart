@@ -5,8 +5,6 @@ import '../../home/views/home_view.dart';
 import '../../profile/views/profile_view.dart';
 
 class BottomNavController extends GetxController {
-  //TODO: Implement BottomNavController
-
   final currentIndex = 1.obs;
 
   final pages = [CartView(), HomeView(), ProfileView()];

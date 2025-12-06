@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:coffee_store_app/app/routes/app_pages.dart';
 import 'package:coffee_store_app/app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,12 +17,31 @@ class HomeView extends GetView<HomeController> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 22.w, right: 22.w, top: 34.h, bottom: 20.h),
+              padding: EdgeInsets.only(
+                left: 22.w,
+                right: 22.w,
+                top: 34.h,
+                bottom: 20.h,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CircleAvatar(radius: 30, backgroundColor: AppColors.third, child: IconButton(onPressed: () {}, icon: Icon(Icons.notifications, color: AppColors.primary, size: 30.sp))),
-                  InkResponse(onTap: () {}, child: Image.asset('assets/icons/menu.png')),
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundColor: AppColors.third,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.notifications,
+                        color: AppColors.primary,
+                        size: 30.sp,
+                      ),
+                    ),
+                  ),
+                  InkResponse(
+                    onTap: () {},
+                    child: Image.asset('assets/icons/menu.png'),
+                  ),
                 ],
               ),
             ),
@@ -34,8 +52,17 @@ class HomeView extends GetView<HomeController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text('قهوه خانه', style: Theme.of(context).textTheme.titleLarge),
-                    Opacity(opacity: 0.7, child: Text('بهترین قهوه برای شما', style: Theme.of(context).textTheme.titleMedium)),
+                    Text(
+                      'قهوه خانه',
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    Opacity(
+                      opacity: 0.7,
+                      child: Text(
+                        'بهترین قهوه برای شما',
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -57,18 +84,36 @@ class HomeView extends GetView<HomeController> {
 
                         fillColor: AppColors.buttonText.withAlpha(160),
                         border: OutlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.black.withAlpha(60), width: 1.8.w),
-                          borderRadius: BorderRadius.only(topRight: Radius.circular(12.r), bottomRight: Radius.circular(12.r)),
+                          borderSide: BorderSide(
+                            color: AppColors.black.withAlpha(60),
+                            width: 1.8.w,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(12.r),
+                            bottomRight: Radius.circular(12.r),
+                          ),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.black.withAlpha(60), width: 1.8.w),
+                          borderSide: BorderSide(
+                            color: AppColors.black.withAlpha(60),
+                            width: 1.8.w,
+                          ),
 
-                          borderRadius: BorderRadius.only(topRight: Radius.circular(12.r), bottomRight: Radius.circular(12.r)),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(12.r),
+                            bottomRight: Radius.circular(12.r),
+                          ),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.black.withAlpha(60), width: 1.8.w),
+                          borderSide: BorderSide(
+                            color: AppColors.black.withAlpha(60),
+                            width: 1.8.w,
+                          ),
 
-                          borderRadius: BorderRadius.only(topRight: Radius.circular(12.r), bottomRight: Radius.circular(12.r)),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(12.r),
+                            bottomRight: Radius.circular(12.r),
+                          ),
                         ),
                       ),
                     ),
@@ -84,10 +129,26 @@ class HomeView extends GetView<HomeController> {
                         elevation: 0,
                         color: AppColors.secondary,
                         shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 1.5.h, color: AppColors.secondary),
-                          borderRadius: BorderRadiusGeometry.only(topLeft: Radius.circular(10.r), bottomLeft: Radius.circular(10.r)),
+                          side: BorderSide(
+                            width: 1.5.h,
+                            color: AppColors.secondary,
+                          ),
+                          borderRadius: BorderRadiusGeometry.only(
+                            topLeft: Radius.circular(10.r),
+                            bottomLeft: Radius.circular(10.r),
+                          ),
                         ),
-                        child: Align(alignment: Alignment.centerLeft, child: Padding(padding: EdgeInsets.only(left: 20.w), child: Icon(Icons.search, color: AppColors.background, size: 28.sp))),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 20.w),
+                            child: Icon(
+                              Icons.search,
+                              color: AppColors.background,
+                              size: 28.sp,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -113,10 +174,26 @@ class HomeView extends GetView<HomeController> {
                           height: 45.h,
                           child: Card(
                             elevation: 0,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.all(Radius.circular(8.r))),
-                            color: index == controller.selectedCategory.value ? AppColors.secondary : AppColors.black.withAlpha(35),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadiusGeometry.all(
+                                Radius.circular(8.r),
+                              ),
+                            ),
+                            color:
+                                index == controller.selectedCategory.value
+                                    ? AppColors.secondary
+                                    : AppColors.black.withAlpha(35),
                             child: Center(
-                              child: Text(controller.categories[index], style: TextStyle(color: index == controller.selectedCategory.value ? AppColors.background : AppColors.black, fontSize: 17.sp)),
+                              child: Text(
+                                controller.categories[index],
+                                style: TextStyle(
+                                  color:
+                                      index == controller.selectedCategory.value
+                                          ? AppColors.background
+                                          : AppColors.black,
+                                  fontSize: 17.sp,
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -138,7 +215,9 @@ class HomeView extends GetView<HomeController> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          controller.openDetails(controller.filteredProducts.elementAt(index));
+                          controller.openDetails(
+                            controller.filteredProducts.elementAt(index),
+                          );
                         },
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10.w),
@@ -150,15 +229,40 @@ class HomeView extends GetView<HomeController> {
                                 width: 230.w,
                                 decoration: BoxDecoration(
                                   color: AppColors.third,
-                                  borderRadius: BorderRadius.only(topRight: Radius.circular(500), topLeft: Radius.circular(500), bottomRight: Radius.circular(150), bottomLeft: Radius.circular(150)),
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(500),
+                                    topLeft: Radius.circular(500),
+                                    bottomRight: Radius.circular(150),
+                                    bottomLeft: Radius.circular(150),
+                                  ),
                                 ),
                               ),
                               Positioned(
-                                bottom: 190.h,
+                                bottom: 180.h,
                                 child: Column(
                                   children: [
-                                    Text(controller.filteredProducts.elementAt(index).name, style: TextStyle(color: AppColors.black, fontSize: 36.sp, fontWeight: FontWeight.bold)),
-                                    Text(controller.filteredProducts.elementAt(index).size, style: TextStyle(color: AppColors.black, fontSize: 18.sp, fontWeight: FontWeight.w900)),
+                                    SizedBox(height: 10.h),
+                                    Text(
+                                      controller.filteredProducts
+                                          .elementAt(index)
+                                          .name,
+                                      style: TextStyle(
+                                        color: AppColors.black,
+                                        fontSize: 36.sp,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(height: 10.h),
+                                    Text(
+                                      controller.filteredProducts
+                                          .elementAt(index)
+                                          .size,
+                                      style: TextStyle(
+                                        color: AppColors.black,
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -167,16 +271,36 @@ class HomeView extends GetView<HomeController> {
                                 child: Stack(
                                   children: [
                                     Align(
-                                      alignment: AlignmentGeometry.xy(0.1, -0.4),
+                                      alignment: AlignmentGeometry.xy(
+                                        0.1,
+                                        -0.4,
+                                      ),
                                       child: Opacity(
                                         opacity: 0.4,
                                         child: SizedBox(
                                           width: 150.w,
-                                          child: ImageFiltered(imageFilter: ImageFilter.blur(sigmaX: 10, sigmaY: 10), child: Image.asset('assets/images/products/espresso.png', color: Colors.black)),
+                                          child: ImageFiltered(
+                                            imageFilter: ImageFilter.blur(
+                                              sigmaX: 10,
+                                              sigmaY: 10,
+                                            ),
+                                            child: Image.asset(
+                                              'assets/images/products/espresso.png',
+                                              color: Colors.black,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                    Align(alignment: AlignmentGeometry.xy(0, -0.4), child: SizedBox(width: 150.w, child: Image.asset('assets/images/products/espresso.png'))),
+                                    Align(
+                                      alignment: AlignmentGeometry.xy(0, -0.4),
+                                      child: SizedBox(
+                                        width: 150.w,
+                                        child: Image.asset(
+                                          'assets/images/products/espresso.png',
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -191,10 +315,51 @@ class HomeView extends GetView<HomeController> {
                                         elevation: 0,
                                         color: AppColors.secondary,
                                         child: Center(
-                                          child: Text(
-                                            controller.filteredProducts.elementAt(index).price.toString(),
-                                            textDirection: TextDirection.rtl,
-                                            style: TextStyle(color: AppColors.background, fontWeight: FontWeight.bold),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'تومان ',
+                                                style: TextStyle(
+                                                  color: AppColors.background,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 11.sp,
+                                                  height: 2.9,
+                                                ),
+                                              ),
+                                              Text(
+                                                controller.filteredProducts
+                                                    .elementAt(index)
+                                                    .price
+                                                    .toString()
+                                                    .substring(
+                                                      0,
+                                                      controller
+                                                              .filteredProducts
+                                                              .elementAt(index)
+                                                              .price
+                                                              .toString()
+                                                              .length -
+                                                          3,
+                                                    ),
+                                                textDirection:
+                                                    TextDirection.rtl,
+                                                style: TextStyle(
+                                                  color: AppColors.background,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Text(
+                                                '.000',
+                                                style: TextStyle(
+                                                  color: AppColors.background,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 11.sp,
+                                                  height: 2.9,
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
@@ -206,7 +371,21 @@ class HomeView extends GetView<HomeController> {
                                       child: Card(
                                         elevation: 0,
                                         color: AppColors.secondary,
-                                        child: Center(child: IconButton(onPressed: () {controller.addToCart(controller.filteredProducts.elementAt(index));}, icon: Icon(Icons.add, color: AppColors.background, size: 27.sp))),
+                                        child: Center(
+                                          child: IconButton(
+                                            onPressed: () {
+                                              controller.addToCart(
+                                                controller.filteredProducts
+                                                    .elementAt(index),
+                                              );
+                                            },
+                                            icon: Icon(
+                                              Icons.add,
+                                              color: AppColors.background,
+                                              size: 27.sp,
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ],

@@ -1,5 +1,6 @@
 // lib/theme/app_theme.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppColors {
   static const primary = Color(0xFF6B4E3D); // Primary
@@ -23,11 +24,11 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.background,
 
       // AppBar
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: AppColors.primary,
         titleTextStyle: TextStyle(
           color: Colors.white,
-          fontSize: 20,
+          fontSize: 20.sp,
           fontWeight: FontWeight.bold,
         ),
         iconTheme: IconThemeData(color: Colors.white),
@@ -42,14 +43,14 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          textStyle: const TextStyle(
-            fontSize: 26,
+          textStyle: TextStyle(
+            fontSize: 26.sp,
             color: AppColors.buttonText,
             fontWeight: FontWeight.bold,
             fontFamily: 'vazirmatn',
-            height: 1,
+            height: 1.h,
           ),
-          padding: const EdgeInsets.symmetric(vertical: 14),
+          padding: EdgeInsets.symmetric(vertical: 14.h),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
@@ -57,7 +58,7 @@ class AppTheme {
           foregroundColor: AppColors.textButton,
           textStyle: TextStyle(
             color: AppColors.text,
-            fontSize: 20,
+            fontSize: 20.sp,
             fontWeight: FontWeight.bold,
             fontFamily: 'vazirmatn',
           ),
@@ -67,7 +68,7 @@ class AppTheme {
         style: OutlinedButton.styleFrom(
           side: const BorderSide(color: AppColors.primary),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
           ),
         ),
       ),
@@ -77,21 +78,18 @@ class AppTheme {
         filled: true,
         fillColor: AppColors.third,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           borderSide: const BorderSide(color: AppColors.text),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: AppColors.secondary, width: 2),
+          borderRadius: BorderRadius.circular(12.r),
+          borderSide: BorderSide(color: AppColors.secondary, width: 2.w),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: AppColors.text, width: 2),
+          borderRadius: BorderRadius.circular(12.r),
+          borderSide: BorderSide(color: AppColors.text, width: 2.w),
         ),
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 14,
-        ),
+        contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
         hintStyle: const TextStyle(color: Colors.grey),
       ),
 
@@ -99,32 +97,32 @@ class AppTheme {
       textTheme: TextTheme(
         bodyLarge: TextStyle(
           color: AppColors.text,
-          fontSize: 18,
+          fontSize: 18.sp,
           fontWeight: FontWeight.bold,
 
           fontFamily: 'vazirmatn',
         ),
         bodyMedium: TextStyle(
           color: AppColors.text,
-          fontSize: 16,
+          fontSize: 16.sp,
           fontWeight: FontWeight.bold,
           fontFamily: 'vazirmatn',
         ),
         titleLarge: TextStyle(
           color: AppColors.text,
-          fontSize: 46,
+          fontSize: 46.sp,
           fontWeight: FontWeight.bold,
           fontFamily: 'vazirmatn',
         ),
         titleMedium: TextStyle(
           color: AppColors.text,
-          fontSize: 26,
+          fontSize: 26.sp,
           fontWeight: FontWeight.bold,
           fontFamily: 'vazirmatn',
         ),
         titleSmall: TextStyle(
           color: AppColors.text,
-          fontSize: 14,
+          fontSize: 14.sp,
           fontFamily: 'vazirmatn',
         ),
       ),
