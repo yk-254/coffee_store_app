@@ -70,22 +70,15 @@ Key layers include:
 
 ### **Installation**
 1. Clone the repository:
-
 cd coffee_store_app
-
 Install dependencies:
-
-
 flutter pub get
-
-
 Run the app:
-
 flutter run
 
 
 
-Project Structure
+## **Project Structure**
 
 lib/
 ├─ app/
@@ -113,25 +106,33 @@ lib/
 └─ main.dart
 
 
-Packages & Technologies
+## **Packages & Technologies**
 Flutter – Cross-platform UI framework
-
 GetX – State management, routing, dependency injection
-
 SharedPreferences – Local persistence for session and cart
-
 Flutter ScreenUtil – Responsive UI
-
 Dart – Core programming language
 
 
-Future Improvements
+## **Future Improvements**
 Connect with a real backend API for products and authentication
-
 Add payment gateway integration
-
 Implement user profile editing
-
 Add animations and improved UI transitions
-
 Push notifications for promotions
+
+
+
+
+## **Screen Shots**
+<img width="222" height="693" alt="Screenshot 2025-12-11 160012" src="https://github.com/user-attachments/assets/4af99e60-4f74-40ea-a0a3-af049483f1de" />
+<img width="222" height="693" alt="Screenshot 2025-12-11 160030" src="https://github.com/user-attachments/assets/30d9767a-21da-491f-9e8f-fa4359396730" />
+<img width="222" height="693" alt="Screenshot 2025-12-11 160047" src="https://github.com/user-attachments/assets/41f2f928-9efe-402e-8772-a58917c6875d" />
+<img width="222" height="693" alt="Screenshot 2025-12-11 160102" src="https://github.com/user-attachments/assets/1e4d0a5d-eafb-4b75-8882-0445e744b0f5" />
+<img width="222" height="693" alt="Screenshot 2025-12-11 160115" src="https://github.com/user-attachments/assets/90799c22-c83c-4a66-af45-1c5d00889de7" />
+<img width="222" height="693" alt="Screenshot 2025-12-11 160137" src="https://github.com/user-attachments/assets/fbe0eb62-9b58-4eef-bc96-ac12966879b9" />
+
+
+
+
+
